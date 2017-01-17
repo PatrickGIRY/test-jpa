@@ -9,19 +9,11 @@ import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Repository
-@Transactional("phenixTransactionManager")
+@Transactional("transactionManager")
 public class PersonRepository {
 
-    @PersistenceContext
+    @PersistenceContext(unitName = "basePU")
     private EntityManager entityManager;
-
-
-    public PersonRepository() {
-    }
-
-    public PersonRepository(EntityManager entityManager) {
-        this.entityManager = entityManager;
-    }
 
     public List<Person> findByName(String firstName) {
         TypedQuery<Person> query = entityManager.createQuery("select person from Person person where person.firstName like :firstName", Person.class);

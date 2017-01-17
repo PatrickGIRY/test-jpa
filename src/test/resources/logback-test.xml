@@ -5,9 +5,8 @@
         </encoder>
     </appender>
 
-    <logger name="com.github.fakemongo" level="INFO"/>
+    <logger name="org.hibernate.jpa" level="TRACE" />
     <logger name="org.springframework" level="OFF"/>
-    <logger name="com.mongodb" level="INFO"/>
 
     <root level="DEBUG">
         <appender-ref ref="STDOUT"/>
